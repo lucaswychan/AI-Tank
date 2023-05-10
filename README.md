@@ -12,6 +12,7 @@ Using STM32F103VET6 to implement an AI tank with the following functions:
 
 
 ## Image Processing Codes
+For more details of the code please visit /Core/Src
 ShapeDetect()
 ```C
 bool ShapeDetect(const uint32_t *center_x, const uint32_t *center_y, const uint16_t optT, uint8_t (*blurred_image)[100], uint16_t *minx, uint16_t *miny, uint16_t *maxx, uint16_t *maxy, char **detectedShape)
