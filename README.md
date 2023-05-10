@@ -1,6 +1,6 @@
 # AI-Tank
 Using STM32F103VET6 to implement an AI tank with the following functions:
-- Image Processing for recognition of shapes and colors (OV7725)
+- **Image Processing for recognition of shapes and colors (OV7725)**
 - Obstacle Detection (HC-SR04)
 - Image Display (LCD)
 - Choosing desired color and shape with GUI design (LCD)
@@ -44,7 +44,7 @@ bool ShapeDetect(const uint32_t *center_x, const uint32_t *center_y, const uint1
     uint8_t output[97][97] = {0};
     LCD_Cam_Gram();
 
-    // CNN
+    // Convolution
 
     // Gaussian blur
     for (y = 1; y < 99; y++)
@@ -92,7 +92,7 @@ bool ShapeDetect(const uint32_t *center_x, const uint32_t *center_y, const uint1
     ky = 0;   // donw-left corner
     kx = 0;   // donw-right corner
 
-    //  			野火
+    //  	  野火
     //   |   x           kx   |
     //   |                    |
     //   |                    |
@@ -197,7 +197,7 @@ bool ShapeDetect(const uint32_t *center_x, const uint32_t *center_y, const uint1
     {
     	LCD_DrawString(5, 5, "No shape detected");
     }
-	return false;
+    return false;
 }
 ```
 
@@ -218,31 +218,29 @@ uint16_t ColorDetect(void)
 	}
 	if (TRACE_NUM == 1)
 	{
-		int i = 0;
-		if(Trace(&condition[color_picked], &result[i]))
-		{
-			LCD_DrawLine(result[i].x-result[i].w/2, result[i].y+result[i].h/2, result[i].x+result[i].w/2, result[i].y+result[i].h/2, BLACK);
-			LCD_DrawLine(result[i].x-result[i].w/2, result[i].y-result[i].h/2, result[i].x+result[i].w/2, result[i].y-result[i].h/2, BLACK);
-			LCD_DrawLine(result[i].x+result[i].w/2, result[i].y+result[i].h/2, result[i].x+result[i].w/2, result[i].y-result[i].h/2, BLACK);
-			LCD_DrawLine(result[i].x-result[i].w/2, result[i].y+result[i].h/2, result[i].x-result[i].w/2, result[i].y-result[i].h/2, BLACK);
-			LCD_DrawChar(result[i].x, result[i].y,'c');
-
-		}
+	     int i = 0;
+	     if(Trace(&condition[color_picked], &result[i]))
+	     {
+		  LCD_DrawLine(result[i].x-result[i].w/2, result[i].y+result[i].h/2, result[i].x+result[i].w/2, result[i].y+result[i].h/2, BLACK);
+		  LCD_DrawLine(result[i].x-result[i].w/2, result[i].y-result[i].h/2, result[i].x+result[i].w/2, result[i].y-result[i].h/2, BLACK);
+		  LCD_DrawLine(result[i].x+result[i].w/2, result[i].y+result[i].h/2, result[i].x+result[i].w/2, result[i].y-result[i].h/2, BLACK);
+		  LCD_DrawLine(result[i].x-result[i].w/2, result[i].y+result[i].h/2, result[i].x-result[i].w/2, result[i].y-result[i].h/2, BLACK);
+		  LCD_DrawChar(result[i].x, result[i].y,'c');
+	     }
 	}
 	else
 	{
-		 for (int i = 0; i < TRACE_NUM; i++)
-	   {
-	      if(Trace(&condition[i], &result[i]))
-	      {
-	            LCD_DrawLine(result[i].x-result[i].w/2, result[i].y+result[i].h/2, result[i].x+result[i].w/2, result[i].y+result[i].h/2, BLACK);
-	            LCD_DrawLine(result[i].x-result[i].w/2, result[i].y-result[i].h/2, result[i].x+result[i].w/2, result[i].y-result[i].h/2, BLACK);
-	            LCD_DrawLine(result[i].x+result[i].w/2, result[i].y+result[i].h/2, result[i].x+result[i].w/2, result[i].y-result[i].h/2, BLACK);
-	            CD_DrawLine(result[i].x-result[i].w/2, result[i].y+result[i].h/2, result[i].x-result[i].w/2, result[i].y-result[i].h/2, BLACK);
-	            LCD_DrawChar(result[i].x, result[i].y, 'c');
-
-	       }
-	   }
+	    for (int i = 0; i < TRACE_NUM; i++)
+	    {
+	         if(Trace(&condition[i], &result[i]))
+	         {
+	              LCD_DrawLine(result[i].x-result[i].w/2, result[i].y+result[i].h/2, result[i].x+result[i].w/2, result[i].y+result[i].h/2, BLACK);
+	              LCD_DrawLine(result[i].x-result[i].w/2, result[i].y-result[i].h/2, result[i].x+result[i].w/2, result[i].y-result[i].h/2, BLACK);
+	              LCD_DrawLine(result[i].x+result[i].w/2, result[i].y+result[i].h/2, result[i].x+result[i].w/2, result[i].y-result[i].h/2, BLACK);
+	              LCD_DrawLine(result[i].x-result[i].w/2, result[i].y+result[i].h/2, result[i].x-result[i].w/2, result[i].y-result[i].h/2, BLACK);
+	              LCD_DrawChar(result[i].x, result[i].y, 'c');
+	          }
+	    }
 	}
 	return result[0].x;
 }
