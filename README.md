@@ -9,7 +9,18 @@ Using STM32F103VET6 to implement an AI tank with the following functions:
 - Camera Rotation (Servo Motor)
 
 ## Photo
-
+<p align="center">
+	<img src="https://github.com/LConann/AI-Tank/blob/main/Image/CarDesign.jpg" width="600">
+</p>
+           
+**GUI Design:**				
+<p align="center">
+	<img src="https://github.com/LConann/AI-Tank/blob/main/Image/ColorGUI.JPG" width="400">
+</p>
+          
+<p align="center">
+	<img src="https://github.com/LConann/AI-Tank/blob/main/Image/ShapeGUI.JPG" width="400">
+</p>
 
 ## Image Processing Codes
 For more details of the code please visit /Core/Src.   
