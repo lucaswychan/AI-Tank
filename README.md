@@ -2,7 +2,10 @@
 
 <div align="center">
   <a href="https://en.wikipedia.org/wiki/STM32">
-    <img src="https://img.shields.io/badge/STM32-grey" alt="STM32">
+    <img src="https://img.shields.io/badge/STM32-202020?style=for-the-badge&logoColor=white" alt="STM32">
+  </a>
+  <a href="https://en.wikipedia.org/wiki/Embedded_system">
+    <img src="https://img.shields.io/badge/Embedded%20System-A0A0A0?style=for-the-badge&logoColor=white" alt="EmbeddedSystem">
   </a>
 </div>
 
